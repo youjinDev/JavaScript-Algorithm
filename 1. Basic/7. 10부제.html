@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(day, arr){
+                let count = 0;
+                arr.forEach(item => (day === item % 10) && count++);
+                return count;
+            }
+            
+            let arr = [25, 23, 11, 47, 53, 17, 33];
+            let testArr = [21, 11, 12, 33, 91, 28];
+
+            console.log(solution(3, arr)); // 3
+            console.log(solution(1, testArr)); // 3
+        </script>
+    </body>
+</html>

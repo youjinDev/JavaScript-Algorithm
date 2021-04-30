@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(a, b, c){
+                const sum = a + b + c;
+                let answer = 'YES';
+                let longest;
+
+                a < b ? longest = b : longest = a;
+                if (longest < c) longest = c;
+                if ((sum - longest) <= longest) answer = 'NO';
+                return answer;
+            }
+            console.log(solution(11, 7, 6)); // Yes
+            console.log(solution(13, 33, 17)); // No
+        </script>
+    </body>
+</html>
