@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){
+                if (s !== s.toUpperCase()) return;
+                let answer;
+                let stringArr = s.split('');
+                if (!stringArr.includes("A")) return;
+                stringArr.map((item, index) => (item === "A") && stringArr.splice(index, 1, "#"));
+                return answer = stringArr.join('');;
+            }
+
+            let str="BANANA";
+            console.log(solution(str));
+
+            let testStr = "CARROT";
+            console.log(solution(testStr));
+
+            // let testStr2 = "agenDA";
+            // console.log(solution(testStr2));
+
+            // let testStr3 = "KKK";
+            // console.log(solution(testStr3));
+        </script>
+    </body>
+</html>
