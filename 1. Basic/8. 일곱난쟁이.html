@@ -13,16 +13,13 @@
                 let answer = [...arr];
                 let sum = answer.reduce((acc, curr) => acc + curr);
                 for (let i = 0 ; i < answer.length ; i++) {
-                    for (let j = 1 ; j < answer.length ; j ++) {
+                    for (let j = i + 1 ; j < answer.length ; j ++) {
                         let total_two = answer[i] + answer[j];
                         if (sum - total_two === 100) {
                             // return answer.filter(item => item !== answer[i] && item !== answer[j]);
-                            console.log(answer);
-                            answer.splice(i, 1);
+                            console.log(answer, i, j);
                             answer.splice(j, 1);
-                            console.log(answer);
-                            // answer.splice(j, 1);
-                            // console.log(answer);
+                            answer.splice(i, 1);
                             return answer;
                         }
                     }
