@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s) {
+                let answer = '';
+                let center = parseInt(s.length / 2);
+                if (s.length % 2 === 0) {
+                    return answer = s.substring(center - 1, center + 1);
+                } else {
+                    return answer = s.substring(center, center + 1);
+                }
+                // let temp = s.split('');
+                // let answer = [];
+                // if (temp.length % 2 == 0) {
+                //     let centerIndex = parseInt(temp.length/2) - 1;
+                //     answer = temp.splice(centerIndex, 2);
+                //     return answer.join('');
+                // } else {
+                //     let centerIndex = parseInt(temp.length/2);
+                //     answer = temp.splice(centerIndex, 1);
+                //     return answer.join('');
+                // }
+            }
+            console.log(solution("study")); //u
+            console.log(solution("good")); //oo
+            console.log(solution("turtle")); //rt
+            console.log(solution("rainbow")); //n
+            console.log(solution("coco")); //oc
+        </script>
+    </body>
+</html>

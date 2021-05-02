@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(string){
+                let answer = 0;
+                for (let char of string) {
+                    if (char === char.toUpperCase()) answer++;
+                }
+                return answer;
+            }
+
+            let str="KoreaTimeGood";
+            let test = "ComposeCOFFEE";
+            console.log(solution(str));
+            console.log(solution(test));
+        </script>
+    </body>
+</html>
