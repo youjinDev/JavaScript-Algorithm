@@ -7,9 +7,7 @@
         <script>
             function solution(str){
                 let answer = [];
-                str.forEach((item, index) => {
-                    if (str.indexOf(item) === index) answer.push(item);
-                })
+                str.forEach((item, index) => (str.indexOf(item) === index) && answer.push(item));
                 return answer;
             }
             let str=["good", "time", "good", "time", "student"];
