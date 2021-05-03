@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){  
+                let answer = 0;
+                let sum1, sum2;
+                let row = [];
+                let column = [];
+                let diagonal = [];
+
+                // 가로, 세로 검사
+                for (let i = 0 ; i < arr.length; i++) {
+                    sum1 = sum2 = 0;
+                    for (let j = 0 ; j < arr.length; j++) {
+                        sum1 += arr[i][j];
+                        sum2 += arr[j][i];
+                    }
+                    row.push(sum1);
+                    column.push(sum2);
+                }
+                
+                // 대각선 검사
+                sum1 = sum2 = 0;
+                for (let i = 0 ; i < arr.length; i++) {
+                    sum1 += arr[i][i];
+                    sum2 += arr[i][arr.length - 1 - i];
+                }
+                diagonal.push(sum1);
+                diagonal.push(sum2);
+
+                return answer = Math.max(...row, ...column, ...diagonal);
+            }
+            let arr=[[10, 13, 10, 12, 15], 
+                    [12, 39, 30, 23, 11],
+                    [11, 25, 50, 53, 15],
+                    [19, 27, 29, 37, 27],
+                    [19, 13, 30, 13, 19]];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>
