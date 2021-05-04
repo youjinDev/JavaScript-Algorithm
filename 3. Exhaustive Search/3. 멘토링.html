@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){
+                let answer = 0;
+                let tmp = [];
+                let testCount = arr.length;
+                let grade = arr[0].length;
+                let pi = pj = 0; // 학생 i와 j의 등수
+
+                for (let i = 1 ; i <= grade; i++) {
+                    for (let j = 1; j <= grade ; j++) {
+                        // (i, j) 학생 번호 결정
+                        let count = 0; // test pass count
+                        for (let k = 0 ; k < testCount; k++) {
+                            let pi = pj = 0;
+                            for(let s = 0 ; s < grade; s++) {
+                                if (arr[k][s] === i) pi = s;
+                                if (arr[k][s] === j ) pj = s;
+                            }
+                            if (pi < pj) count++;
+                        }
+                        if (count === testCount) {
+                            answer++;
+                            tmp.push([i, j]);
+                            
+                        }
+                    }
+                }
+                console.log(tmp);
+                return answer;
+            }
+            let arr=[
+                    [3, 4, 1, 2],
+                    [4, 3, 2, 1],
+                    [3, 1, 4, 2]];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>

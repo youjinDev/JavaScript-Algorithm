@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){
+                let tempArr = [];
+                arr.forEach(element => tempArr.push((element.toString().split('').reverse())));
+                answer = tempArr.map(elem => Number(elem.join(''))).filter(elem => isPrime(elem));
+                return answer;
+            }
+
+            function isPrime(num) {
+                if (num === 1) return false;
+                for (let i = 2 ; i*i <= num; i++) {
+                    if (num % i === 0) return false;
+                }
+                return true;
+            }
+
+            function swapNum(arr) {
+                let res = [];
+                for (let elem of arr) {
+                    let result = 0;
+                    while(elem) {
+                        let remainder = elem % 10;
+                        result = result * 10 + remainder;
+                        elem = parseInt(elem / 10);
+                    }
+                    res.push(result);
+                }
+                return res;
+            }
+            
+            let arr=[32, 55, 62, 20, 250, 370, 200, 30, 100, 92];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>
