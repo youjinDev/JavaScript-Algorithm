@@ -6,18 +6,36 @@
     <body>
         <script>
             
-            function solution(m, songs){
-                let answer = 0;
-                let sorted = [...songs].sort((a, b) => a - b);
-                let min = sorted[0];
-                let max = sorted.slice(2, sorted.length).reduce((prev, curr) => prev + curr);
-                let mid = parseInt((min + max) / 2);
+            // function solution(m, songs){
+            //     let answer = 0;
+            //     let sorted = [...songs].sort((a, b) => a - b);
+            //     let min = sorted[0];
+            //     let max = sorted.slice(2, sorted.length).reduce((prev, curr) => prev + curr);
+            //     let mid = parseInt((min + max) / 2);
                
+            //     return answer;
+            // }
+
+            // let arr=[1, 2, 3, 4, 5, 6, 7, 8, 9];
+            // console.log(solution(3, arr));
+
+
+            function solution(arr) {
+                let answer = [arr[0]];
+                for (let i = 1; i < arr.length - 1; i++) {
+                    if (answer[answer.length - 1] !== arr[i]) answer.push(arr[i]);
+                    if (arr[i] !== arr[i+1]) answer.push(arr[i+1]);
+                }
                 return answer;
             }
 
-            let arr=[1, 2, 3, 4, 5, 6, 7, 8, 9];
-            console.log(solution(3, arr));
+            console.log(solution([1, 1, 3, 3, 0, 1, 1]));
+
+            function solution2(arr) {
+                const answer = arr.filter((val, index)=> val != arr[index+1]);
+                return answer;
+            }
+            console.log(solution([1, 1, 3, 3, 0, 1, 1]));
         </script>
     </body>
 </html>
