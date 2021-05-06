@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            // concept : 어느 자리에 어떤 수가 들어가야할지 이미 정해져있음 (최소값/최대값 등)
+            function solution(...arr){
+                let answer = [...arr];
+                let index;
+                for (let i = 0 ; i < answer.length; i++) {
+                    index = i;
+                    for (let j = i + 1 ; j < answer.length; j++) {
+                        if (answer[index] > answer[j]) index = j; // index변수는 가장 작은 값의 인덱스를 갖고있게 됨
+                    }
+                    [answer[i], answer[index]] = [answer[index], answer[i]];
+                }
+                return answer;
+            }
+
+            let arr=[13, 5, 11, 7, 23, 15];
+            console.log(solution(...arr));
+        </script>
+    </body>
+</html>

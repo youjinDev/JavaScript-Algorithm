@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            
+            function solution(m, songs){
+                let answer = 0;
+                let sorted = [...songs].sort((a, b) => a - b);
+                let min = sorted[0];
+                let max = sorted.slice(2, sorted.length).reduce((prev, curr) => prev + curr);
+                let mid = parseInt((min + max) / 2);
+               
+                return answer;
+            }
+
+            let arr=[1, 2, 3, 4, 5, 6, 7, 8, 9];
+            console.log(solution(3, arr));
+        </script>
+    </body>
+</html>
