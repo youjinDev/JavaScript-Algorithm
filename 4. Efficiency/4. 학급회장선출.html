@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s) {  
+                let answer;
+                let hashMap = new Map();
+                let max = Number.MIN_SAFE_INTEGER;
+                
+                [...s].forEach(element => {
+                    if (!hashMap.get(element)) hashMap.set(element, 1);
+                    else hashMap.set(element, hashMap.get(element) + 1);
+                });
+                hashMap.forEach((value, key) => {
+                    max = Math.max(value, max);
+                    if (value === max) answer = key;
+                });
+                return answer;
+            }
+
+            let str="BACBACCACCBDEDE";
+            console.log(solution(str));
+        </script>
+    </body>
+</html>

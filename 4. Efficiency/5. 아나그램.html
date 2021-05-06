@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(str1, str2){
+                let answer="YES";
+                let hash = new Map();
+                [...str1].forEach(element => {
+                    if(!hash.get(element)) hash.set(element, 1);
+                    else hash.set(element, hash.get(element) + 1);
+                });
+                [...str2].forEach(element => {
+                    if (!hash.has(element) || hash.get(element) === 0 ) answer = "No";
+                    hash.set(element, hash.get(element)-1);
+                });
+                return answer;
+            } 
+            let a="AbaAeCe";
+            let b="baeeACA";
+            console.log(solution(a, b));
+        </script>
+    </body>
+</html>

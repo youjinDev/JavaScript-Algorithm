@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s, t){
+                let answer;
+                let iterator = 0;
+                const windowSize = t.length;
+                let hash = new Map();
+                for (let i = 0 ; i < windowSize ; i++) {
+                    if (!hash.get([...s][i])) hash.set([...s][i], 1);
+                    else hash.set([...s][i], hash.get([...s][i] + 1));
+                    [...t].forEach(element => {
+                        if(!hash.has(element) || hash.get(element) === 0) {
+                            console.log("dd");
+                        } else if (hash.has(element) ) {
+                            
+                        }
+                    })
+                }
+                console.log(hash);
+                
+                
+                return answer;
+            }
+            
+            let a="bacaAacba";
+            let b="abc";
+            console.log(solution(a, b));
+        </script>
+    </body>
+</html>

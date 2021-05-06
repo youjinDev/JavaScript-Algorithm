@@ -1,0 +1,25 @@
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(participant, completion) {
+            let answer = '';
+            let hashP = new Map();
+            participant.forEach(elem => {
+                if(!hashP.get(elem)) hashP.set(elem, 1);
+                else hashP.set(elem, hashP.get(elem)+1);
+            });
+            completion.forEach(elem => (hashP.has(elem)) && hashP.set(elem, hashP.get(elem)-1));
+            hashP.forEach((val, key) => {if (val !== 0) answer += key});
+            return answer;
+            }
+            const p = ["김나영", "정수민", "채형인", "홍나라", "김나영"];
+            const c = ["김나영", "채형인"];
+            console.log(solution(p, c));
+        </script>
+    </body>
+</html>
