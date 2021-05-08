@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(max, arr){
+                let answer = 0;
+                let dogs = [...arr];
+                let total = 0;
+                let tmp = 0;
+                function DFS (Lv, sum){
+                    if (Lv===dogs.length){
+                        if (sum > max) return;
+                        else answer += sum;
+                    } else {
+                        DFS(Lv+1, sum+arr[Lv]);
+                        DFS(Lv+1, sum);
+                    }
+                }
+                DFS(0, 0);
+                return answer;
+            }
+            let arr=[81, 58, 42, 33, 61];
+            console.log(solution(259, arr));
+        </script>
+    </body>
+</html>

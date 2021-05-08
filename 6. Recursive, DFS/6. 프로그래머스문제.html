@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>코딩 테스트1</title>
+    </head>
+    <body>
+        <script>
+            function solution(numbers, target) {
+            let answer = 0;
+            function DFS(lv, sum) {
+                let answer = 0;
+                function DFS(lv, sum) {
+                    if (lv===numbers.length+1) {
+                        if (sum > target || sum < target) return;
+                        answer++;
+                    } else {
+                        DFS(lv+1, sum-numbers[lv-1]);
+                        DFS(lv+1, sum+numbers[lv-1]);
+                    }
+                }
+                return answer;
+                DFS(1, 0);
+            }
+        }
+            console.log(solution([1,1,1,1,1], 3));
+        </script>
+    </body>
+</html>
