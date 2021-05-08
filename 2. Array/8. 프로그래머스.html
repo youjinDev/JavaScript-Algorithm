@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>보물지도찾기</title>
+    </head>
+    <body>
+        <script>
+            function solution(n, arr1, arr2) {
+                let answer = [];
+                let row = [];
+                for (let i = 0 ; i < n ; i++) {
+                    row[i] = ((arr1[i]|arr2[i]).toString(2).split(''));
+                    answer[i] = row[i].map(elem => (elem === "1") ? elem = "#" : elem = " ");
+                }
+                answer = answer.map(elem => elem.join(''));
+                return answer;
+            }
+
+            console.log(solution(5, [9, 20, 28, 18, 11], [30, 1, 21, 17, 28]));
+        </script>
+    </body>
+</html>
