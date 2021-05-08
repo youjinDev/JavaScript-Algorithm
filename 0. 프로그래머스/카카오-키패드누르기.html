@@ -6,34 +6,74 @@
     <body>
         <script>
             function solution(numbers, hand) {
-                let answer = [...numbers];
-                answer.forEach((elem, i) => {
+                let answer = [];
+                let last_L = '*';
+                let last_R = '#';
+                const dial = [
+                    [1, 2, 3],
+                    [4, 5, 6],
+                    [7, 8, 9],
+                    ['*', 0, '#']
+                ];
+
+                numbers.forEach((elem, i)=> {
                     switch(elem) {
                         case 1: case 4: case 7:
-                            answer[i] = "L";
+                            answer.push("L");
+                            last_L = elem;
                         break;
                         case 3: case 6: case 9:
-                            answer[i] = "R";
+                            answer.push("R");
+                            last_R = elem;
                         break;
                         case 2: case 5: case 8: case 0:
-                            let last_L = answer.slice(0, i).lastIndexOf("L");
-                            let last_R = answer.slice(0, i).lastIndexOf("R");
-                            if (calcDistance(elem, last_L) === calcDistance(elem, last_R)) answer[i] = hand.toUppercase().charAt(0);
-                            else (calcDistance(elem, last_L) > calcDistance(elem, last_R)) ? answer[i] = "R" : answer[i] = "L";
+                            let coordElem = coord(elem);
+                            let elemToL = calcDistance(coord(last_L), coordElem);
+                            let elemToR = calcDistance(coord(last_R), coordElem);
+                            if (elemToL == elemToR) {
+                                answer.push(hand.toUpperCase().charAt(0));
+                                if (hand === "left") last_L = elem;
+                                else last_R = elem;
+                            }
+                            else if (elemToR > elemToL) {
+                                answer.push("L");
+                                last_L = elem;
+                            }
+                            else if (elemToL > elemToR) {
+                                answer.push("R");
+                                last_R = elem;
+                            }
                         break;
                     }
-                });
 
-                function calcDistance(num, index) {
-                    const distance = Math.abs(numbers[index] - num);
-                    return distance;
+                function coord(num) {
+                    let x;
+                    let y;
+                    dial.forEach((elem, i) => {
+                        if (elem.includes(num)) {
+                            x = i;
+                            elem.forEach(val => {
+                                y = elem.indexOf(num);
+                                return;
+                            });
+                            return;
+                        }
+                    });
+                    return [x, y];
+                }
+                })
+
+                function calcDistance(i, j) {
+                    let x = Math.abs(i[0] - j[0]);
+                    let y = Math.abs(i[1] - j[1]);
+                    return x + y;
                 }
 
-                return answer;
+                return answer.join('');
             }
             
-            console.log(solution([1, 3, 4, 5, 8, 2, 1, 4, 5, 9, 5], "right")); // LRLLL
-            console.log(solution([1, 2, 3, 4, 5, 6, 7, 8, 9, 0], "right")); // 
+            console.log(solution([7, 0, 8, 2, 8, 3, 1, 5, 7, 6, 2], "left"));
+            // console.log(solution([1, 2, 3, 4, 5, 6, 7, 8, 9, 0], "right"));  
 
         </script>
     </body>
