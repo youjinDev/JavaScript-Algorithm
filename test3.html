@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>코딩 테스트3</title>
+    </head>
+    <body>
+        <script>
+            function solution(num) {
+                let answer;
+                let array = new Array(num);
+                for (let i = 0; i < num ; i++) {
+                    array[i] = new Array(num).fill(0);
+                }
+
+                let i = 0;
+                let mid = parseInt(num/2);
+
+                for (let k = 1; k <= num*num; k++) {
+                    array[i][mid] = k;
+                    if (k%num == 0) {
+                        i++;
+                        continue;
+                    }
+                    else {
+                        i--;
+                        mid++;
+                        if (i < 0) i = num-1;
+                        if (mid > num - 1) mid = 0;
+                    }
+                }
+                return array;
+            }
+            console.log(solution(3));
+        </script>
+    </body>
+</html>

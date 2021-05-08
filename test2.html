@@ -1,0 +1,83 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>코딩 테스트3</title>
+    </head>
+    <body>
+        <style>
+        .outer {
+            box-sizing: border-box;
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            padding: 10px;
+        }
+
+        .wrapper {
+            height: 170px;
+        }
+
+        .child-one {
+            width: auto;
+            height: 10px;
+            background-color: red;
+        }
+
+        .child-two {
+            width: auto;
+            height: 100%;
+            background-color: green;
+            text-align: right;
+        }
+
+        span {
+            color : white;
+            margin-top: 0px;
+            margin-right: 5px;
+        }
+
+        .left {
+            background-color: red;
+            display: inline-block;
+            margin-right: 10px;
+            width: 100px;
+            height: 70px;
+        }
+
+        .right {
+            display: inline-block;
+            position: relative;
+            background-color: skyblue;
+            width: 150px;
+            height: 150px;
+        }
+
+        .inner {
+            position: absolute;
+            background-color: yellowgreen;
+            width: 50px;
+            height: 40px;
+            bottom: 5px;
+            right: 5px;
+            
+        }
+
+        </style>
+
+        <div class="outer">
+            <div class="wrapper">
+            <div class="child-one">
+
+            </div>
+            <div class="child-two">
+                <span>안녕하세요</span>
+            </div>
+            </div>
+        </div>
+
+        <div class="left"></div>
+        <div class="right">
+            <div class="inner"></div>
+        </div>
+    </body>
+</html>
