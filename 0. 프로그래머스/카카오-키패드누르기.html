@@ -49,19 +49,16 @@
                 function coord(num) {
                     let x;
                     let y;
-                    dial.forEach((elem, i) => {
-                        if (elem.includes(num)) {
+                    for (let i = 0; i < dial.length; i++) {
+                        if (dial[i].includes(num)) {
                             x = i;
-                            elem.forEach(val => {
-                                y = elem.indexOf(num);
-                                return;
-                            });
-                            return;
-                        }
-                    });
+                            y = dial[i].indexOf(num);
+                            }
+                    }
+                    
                     return [x, y];
                 }
-                })
+                });
 
                 function calcDistance(i, j) {
                     let x = Math.abs(i[0] - j[0]);
