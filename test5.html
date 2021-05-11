@@ -12,11 +12,9 @@
 
                 while(userArr.length < count) {
                     let number = parseInt(prompt("숫자를 입력하세요"));
-                    if (userArr.includes(number)) {
-                        alert("이미 입력한 숫자입니다.");
-                    } else (number < 1 || number > 50) ? alert("범위에 없는 숫자입니다.") : userArr.push(number);
+                    if (userArr.includes(number)) alert("이미 입력한 숫자입니다.");
+                    else (number < 1 || number > 50) ? alert("범위에 없는 숫자입니다.") : userArr.push(number);
                 }
-
                 let candidates = Array.from({length: 49}, (_, i) => i + 1);
                 for (let i = 0; i < count; i++) {
                     let randomIndex = Math.floor(Math.random() * 49);
@@ -40,8 +38,8 @@
                 당신의 등수는 ${grade}등 입니다!
                 맞힌 개수 : ${answerCount}개`);
             }
-            solution(6);
             
+            solution(6);
         </script>
     </body>
 </html>

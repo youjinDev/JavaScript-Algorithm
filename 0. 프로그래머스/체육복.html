@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>체육복</title>
+    </head>
+    <body>
+        <script>
+            // 주어진 테스트케이스만 통과함 ㅠ
+            function solution(n, lost, reserve) {
+                let answer;
+                const concatLength = [...lost, ...reserve].length;
+                let realLost = lost.filter(a => !reserve.includes(a));
+                let realReserve = reserve.filter(a => !lost.includes(a));
+                let valCount = 0;
+                let map = new Map();
+                for (let i = 0; i < realReserve.length; i++) {
+                    map.set(realReserve[i], 0);
+                }
+                for (let [key, val] of map) {
+                    if (realLost.includes(key+1) && realLost.includes(key-1)) {
+                        let target = realLost.indexOf(realLost.filter(elem => elem === key-1)[0]);
+                        map.set(key, realLost.splice(target, 1)[0]); 
+                    } else if (realLost.includes(key-1)) {
+                        let target = realLost.indexOf(realLost.filter(elem => elem === key-1)[0]);
+                        map.set(key, realLost.splice(target, 1)[0]);    
+                    } else if (realLost.includes(key+1)) {
+                        let target = realLost.indexOf(realLost.filter(elem => elem === key+1)[0]);
+                        map.set(key, realLost.splice(target, 1)[0]);                    
+                    }
+                }
+                for (let [key, val] of map) {
+                    if (val !== 0) valCount++;
+                }
+                return answer = n - concatLength + (map.size + valCount);
+            }
+
+            // 구글링한 답
+            function solution2(n, lost, reserve) {
+                let realLost = lost.filter(a => !reserve.includes(a));
+                let realReserve = reserve.filter(a => !lost.includes(a));
+                return n - realLost.filter(a => {
+                    let b = realReserve.find(r => Math.abs(r-a) <= 1);
+                    if(!b) return true;
+                    realReserve = realReserve.filter(r => r !== b);
+                }).length;
+            }
+
+            console.log(solution(5, [2,4], [1,3,5])); // 5
+            console.log(solution(5, [2,4], [3])); // 4
+            console.log(solution(3, [3], [1])); // 2
+        </script>
+    </body>
+</html>
