@@ -5,17 +5,17 @@
     </head>
     <body>
         <script>
-
             function solution(count) {
                 let userArr = [];
                 let randomArr = [];
-
+                
                 while(userArr.length < count) {
                     let number = parseInt(prompt("숫자를 입력하세요"));
                     if (userArr.includes(number)) alert("이미 입력한 숫자입니다.");
                     else (number < 1 || number > 50) ? alert("범위에 없는 숫자입니다.") : userArr.push(number);
                 }
-                let candidates = Array.from({length: 49}, (_, i) => i + 1);
+                let candidates = Array.from({length: 49}, (_, i) => i + 1); //시퀀스생성기
+                console.log(candidates);
                 for (let i = 0; i < count; i++) {
                     let randomIndex = Math.floor(Math.random() * 49);
                     let selected = candidates.splice((randomIndex - i), 1)[0];
@@ -25,7 +25,6 @@
             }
 
             function answerCheck(userArr, randomArr) {
-                console.log(userArr, randomArr);
                 let answerCount = 0;
                 let grade = 7;
                 for (let i = 0; i < randomArr.length; i++) {

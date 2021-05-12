@@ -1,7 +1,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>코딩 테스트3</title>
+        <title>마방진</title>
     </head>
     <body>
         <script>
@@ -11,17 +11,15 @@
                 for (let i = 0; i < num ; i++) {
                     array[i] = new Array(num).fill(0);
                 }
-
                 let i = 0;
-                let mid = parseInt(num/2);
-
+                let mid = parseInt(num/2); // 첫번째 행의 가운데 열부터 1 넣고 시작
                 for (let k = 1; k <= num*num; k++) {
                     array[i][mid] = k;
-                    if (k%num == 0) {
-                        i++;
+                    if (k%num == 0) { // k가 n의 인수이면
+                        i++;          // 바로 밑 칸으로 간다
                         continue;
                     }
-                    else {
+                    else { // 아니라면 위로 한 칸, 오른쪽으로 한 칸 간다
                         i--;
                         mid++;
                         if (i < 0) i = num-1;
@@ -30,7 +28,8 @@
                 }
                 return array;
             }
-            console.log(solution(3));
+            console.log(solution(5));
+
         </script>
     </body>
 </html>
