@@ -6,19 +6,18 @@
     <body>
         <script>
             function solution(lottos, win_nums) {
-                let zeroCount = 0;
                 let answer = [];
+                const zeroCount = lottos.filter(number => number === 0).length;
                 let hitCount = 0;
                 lottos.forEach(elem => {
-                    elem === 0 ? zeroCount++ : win_nums.includes(elem) && hitCount++;
+                    win_nums.includes(elem) && hitCount++;
                 });
-                // console.log(zeroCount, hitCount);
-                answer.push(calcGrade(zeroCount + hitCount));
-                answer.push(calcGrade(hitCount));
+                answer.push(calcRank(zeroCount + hitCount));
+                answer.push(calcRank(hitCount));
                 return answer;
             }
 
-            function calcGrade(hit) {
+            function calcRank(hit) {
                 if (hit >= 2) return 6 - hit + 1;
                 else return 6;
             }
