@@ -26,11 +26,9 @@
                 let answerCount = 0;
                 let grade = 7;
                 for (let i = 0; i < randomArr.length; i++) {
-                    if (userArr.includes(randomArr[i])) {
-                        answerCount++;
-                        grade -= 1;
-                    }
+                    answerCount += userArr.filter(num => randomArr[i] === num).length;
                 }
+                grade -= answerCount;
                 return alert(`정답 번호 공개 : ${randomArr}
                 당신의 등수는 ${grade}등 입니다!
                 맞힌 개수 : ${answerCount}개`);

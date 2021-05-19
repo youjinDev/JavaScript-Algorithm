@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력</title>
+    </head>
+    <body>
+        <script>
+            function solution(left, right) {
+                let answer = 0;
+                for (let i = left; i <= right; i++) {
+                    factorCount(i) % 2 === 0 ? answer += i : answer -= i;
+                }
+                return answer;
+            }
+            function factorCount(number) {
+                let factorArr = [];
+                for (let i = 1; i <= parseInt(number/2) ; i++) {
+                    if (number%i === 0) factorArr.push(i);
+                }
+                factorArr.push(number);
+                return factorArr.length;
+            }
+            console.log(solution(13, 17));
+        </script>
+    </body>
+</html>
