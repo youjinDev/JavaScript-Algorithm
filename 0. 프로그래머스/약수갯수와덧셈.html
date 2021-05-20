@@ -9,12 +9,12 @@
                 let answer = 0;
                 for (let i = left; i <= right; i++) {
                     factorCount(i) % 2 === 0 ? answer += i : answer -= i;
+                    // 제곱근이 정수면 약수의 개수가 홀수,,,, 이걸 어찌 아누
                     // if (Number.isInteger(Math.sqrt(i))) {
                     //     answer -= i;
                     // } else {
                     //     answer += i;
                     // }
-                    // 제곱근이 정수면 약수의 개수가 홀수,,,, 이걸 어찌 아누
                 }
                 return answer;
             }

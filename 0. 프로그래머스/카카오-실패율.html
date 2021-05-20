@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력</title>
+    </head>
+    <body>
+        <script>
+            function solution(N, stages) {
+                let failureRateArr = [];
+                for (let i = 1 ; i <= N ; i++) {
+                    const numerator = stages.filter(stage => stage === i).length;
+                    const denominator = stages.filter(stage => stage >= i).length;
+                    const failureRatio = numerator/denominator;
+                    failureRateArr.push({number : i, failureRatio : failureRatio});
+                }
+                return failureRateArr.sort((a, b) => b.failureRatio - a.failureRatio).map(elem => elem.number);
+            }
+            console.log(solution(5, [2, 1, 2, 6, 2, 4, 3, 3])); // 34215
+            console.log(solution(4, [4,4,4,4,4])); // 4123
+        </script>
+    </body>
+</html>
