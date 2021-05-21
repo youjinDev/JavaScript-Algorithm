@@ -11,9 +11,9 @@
                     const numerator = stages.filter(stage => stage === i).length;
                     const denominator = stages.filter(stage => stage >= i).length;
                     const failureRatio = numerator/denominator;
-                    failureRateArr.push({number : i, failureRatio : failureRatio});
+                    failureRateArr.push({'stage' : i, 'failureRatio' : failureRatio});
                 }
-                return failureRateArr.sort((a, b) => b.failureRatio - a.failureRatio).map(elem => elem.number);
+                return failureRateArr.sort((a, b) => b.failureRatio - a.failureRatio).map(elem => elem.stage);
             }
             console.log(solution(5, [2, 1, 2, 6, 2, 4, 3, 3])); // 34215
             console.log(solution(4, [4,4,4,4,4])); // 4123
