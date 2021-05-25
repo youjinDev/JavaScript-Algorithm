@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력</title>
+    </head>
+    <body>
+        <script>
+            function solution(a, b) {
+                const days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+                const MONTH = a - 1;
+                const DATE = b;
+                const dayIndex = new Date(2016, MONTH, DATE).getDay();
+                return days[dayIndex];
+            }
+            console.log(solution(5, 24)); //화
+        </script>
+    </body>
+</html>
