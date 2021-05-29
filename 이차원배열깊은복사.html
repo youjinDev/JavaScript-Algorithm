@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let newMatrix;
+        function solution(matrix) {
+            newMatrix = [...matrix];
+            newMatrix[1] = [...matrix[1]];
+            console.log(newMatrix);
+            console.log(matrix);
+
+        }
+        
+        console.log(solution([[0,0,0,0,0],[0,0,1,0,3],[0,2,5,0,1],[4,2,4,4,2],[3,5,1,3,1]]));
+        newMatrix[1].splice(2, 1, '뿅');
+
+        const items = [1, 2, 3, 4, 5];
+    </script>
+</body>
+</html>

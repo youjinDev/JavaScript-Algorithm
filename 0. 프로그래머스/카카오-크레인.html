@@ -9,31 +9,35 @@
 <body>
     <script>
         function solution(board, moves) {
+            let playMatrix = [...board];
+            for (let i = 0; i < board.length; i++) {
+                playMatrix[i] = [...board[i]];
+            }
             let answer = 0;
-            let pickedArr = [];
+            let pickedStack = [];
             moves.forEach(elem => catchItem(elem));
 
             function catchItem(n) {
                 let picked;
-                for (let i = 0 ; i < board.length; i++) {
-                    if (board[i][n-1] !== 0) {
-                        picked = board[i][n-1];
-                        pickedArr.push(picked);
-                        isPop(pickedArr);
-                        board[i].splice(n-1, 1, 0);
+                for (let i = 0 ; i < playMatrix.length; i++) {
+                    if (playMatrix[i][n-1] !== 0) {
+                        picked = playMatrix[i][n-1];
+                        pickedStack.push(picked);
+                        isPop(pickedStack);
+                        playMatrix[i].splice(n-1, 1, 0);
                         break;
                     }
                 }
             }
 
-            function isPop(pickedArr) {
-                pickedArr.map((item, index) => {
-                    if (item === pickedArr[index+1]) {
-                        pickedArr.pop();
-                        pickedArr.pop();
+            function isPop(pickedStack) {
+                pickedStack = pickedStack.map((item, index) => {
+                    if (item === pickedStack[index+1]) {
+                        pickedStack.pop();
+                        pickedStack.pop();
                         answer += 2;
                     }
-                })
+                });
             }
             return answer;
         }
